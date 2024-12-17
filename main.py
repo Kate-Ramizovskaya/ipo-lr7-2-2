@@ -1,13 +1,13 @@
 import json 
 
-kvalf = input("Введите номер квалификации: ")  
+kvalification = input("Введите номер квалификации: ")  
 find = False 
 
 with open("dump.json", 'r', encoding = 'utf-8') as file:
     read_file = json.load(file)   
     for skill in read_file: 
         if skill.get("model") == "data.skill":
-            if skill["fields"].get("code") == kvalf:  
+            if skill["fields"].get("code") == kvalification:  
                 skill_code = skill["fields"].get("code") 
                 skill_title = skill["fields"].get("title")  
                 skill_specialty=skill["fields"].get("specialty")
@@ -32,4 +32,4 @@ for specialty in read_file:
 else:
     print("\n", " Найдено ".center(80, "="),'\n')
     print(f"{specialty_c} >> Специальность '{specialty_title}', {specialty_educational}") 
-    print(f"{kvalf} >> Квалификация '{skill_title}'") 
+    print(f"{kvalification} >> Квалификация '{skill_title}'") 
